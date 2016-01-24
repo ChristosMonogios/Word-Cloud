@@ -11,17 +11,18 @@ wordCloud.mathModule = (function() {
     
     function normalDistributionSorter(arr, property) {
         if (!(arr instanceof Array)) {
-            alert ("provide an array");
-            return [];
+            throw new Error("Please provide an array.");
+        }
+        
+        if (property !== undefined && !(typeof property == "string")) {
+            throw new Error("The property has to be a string");
         }
         
         var normalDistArr = [];
         
         propertyToSortTo = property;
         arr.sort(numberSorterDescending);
-        propertyToSortTo = null;
         
-        // TODO: check forEach compatibility
         arr.forEach(function(element, index) {
             if (index % 2) {
                 normalDistArr.push(element);
@@ -30,22 +31,24 @@ wordCloud.mathModule = (function() {
             }
         });
         
+        propertyToSortTo = null;
         return normalDistArr;
     }
     
     // Code from http://jsfiddle.net/guffa/tvt5k/
     function generateArrayWithNormalDistributedElements(counter) {
-        var numbers = []
+        var numbers = [],
+            numberOfGeneratedNumbers = 20;
         
         function rnd() {
             return Math.random() - Math.random();
         }
         
-        for (var i = 0; i <= 20; i++) { // TODO: what to do with 20?
+        for (var i=0; i<=numberOfGeneratedNumbers; i++) {
             numbers[i] = 0;
         }
         
-        for (var i = 0; i < counter; i++) {
+        for (var i=0; i<counter; i++) {
             numbers[10 + Math.round(10 * rnd())]++;
         }
         
@@ -54,6 +57,7 @@ wordCloud.mathModule = (function() {
     
     return {
         normalDistributionSorter: normalDistributionSorter,
-        generateArrayWithNormalDistributedElements: generateArrayWithNormalDistributedElements,        
+        generateArrayWithNormalDistributedElements: generateArrayWithNormalDistributedElements,
+        numberSorterDescending: numberSorterDescending  
     }
 })();

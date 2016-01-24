@@ -49,13 +49,11 @@ wordCloud.wordCloudModule = (function(mathModule, uiHelpersModule, MetaData) {
 
         for (var i=0; i<topicsLength; i++) {
             currentRowOfCloudAsHTMLElement = uiHelpersModule.getHTMLElementBasedOnItsId("cloudRow" + currentRowOfCloud);
-            currentWordAsHTMLElement = uiHelpersModule.createAHTMLElement("div", i, "word");
-
-            currentWordAsHTMLElement.classList.add("text-size-" + getTextSizeBasedOnPopularity(topics[i].volume || 10));
-            currentWordAsHTMLElement.classList.add(getColorBasedOnSentimentScore(topics[i].sentimentScore || 50));
+            currentWordAsHTMLElement = uiHelpersModule.createAHTMLElement("div", i, 
+                ["word", "text-size-" + getTextSizeBasedOnPopularity(topics[i].volume || 10),
+                getColorBasedOnSentimentScore(topics[i].sentimentScore || 50)]);
                         
             currentWordAsHTMLElement.innerHTML = topics[i].label || "";
-            currentWordAsHTMLElement.name = "word";
 
             uiHelpersModule.applyStylingToAHTMLElement(currentWordAsHTMLElement, {
                 marginTop: Math.floor(Math.random() * 10) + "px",
