@@ -1,5 +1,9 @@
 wordCloud.wordCloudModule = (function(mathModule, uiHelpersModule, MetaData) {
     var topics = [];
+    var configs = {
+        aMaxFactorForMarginLeftAndRight: 15,
+        aMaxFactorForMarginTopAndBottom: 40
+    }
     
     function getTopics() {
         return topics;
@@ -56,10 +60,10 @@ wordCloud.wordCloudModule = (function(mathModule, uiHelpersModule, MetaData) {
             currentWordAsHTMLElement.innerHTML = topics[i].label || "";
 
             uiHelpersModule.applyStylingToAHTMLElement(currentWordAsHTMLElement, {
-                marginTop: Math.floor(Math.random() * 10) + "px",
-                marginBottom: Math.floor(Math.random() * 10) + "px",
-                marginLeft: Math.floor(Math.random() * 30) + 1 + "px",
-                marginRight: Math.floor(Math.random() * 30) + 1 + "px"
+                marginTop: Math.floor(Math.random() * configs.aMaxFactorForMarginLeftAndRight) + "px",
+                marginBottom: Math.floor(Math.random() * configs.aMaxFactorForMarginLeftAndRight) + "px",
+                marginLeft: Math.floor(Math.random() * configs.aMaxFactorForMarginTopAndBottom) + "px",
+                marginRight: Math.floor(Math.random() * configs.aMaxFactorForMarginTopAndBottom) + "px"
             });
 
             currentRowOfCloudAsHTMLElement.appendChild(currentWordAsHTMLElement);
@@ -128,6 +132,8 @@ wordCloud.wordCloudModule = (function(mathModule, uiHelpersModule, MetaData) {
         setTopics: setTopics,
         createARandomCloud: createARandomCloud,
         addWordsInsideTheCloud: addWordsInsideTheCloud,
-        doWordCloudAfterReceivedRespone: doWordCloudAfterReceivedRespone
+        doWordCloudAfterReceivedRespone: doWordCloudAfterReceivedRespone, 
+        getTextSizeBasedOnPopularity: getTextSizeBasedOnPopularity,
+        getColorBasedOnSentimentScore: getColorBasedOnSentimentScore
     }
 })(wordCloud.mathModule, wordCloud.uiHelpersModule, wordCloud.MetaData);

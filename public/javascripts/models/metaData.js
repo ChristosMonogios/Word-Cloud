@@ -16,6 +16,8 @@
         MetaData.prototype.updateMetaInformation  = function(e) {
             var key = e.currentTarget.id;
             var result = wordCloudModule.getTopics()[key];
+            
+            e.currentTarget.style.textDecoration = "underline";
 
             this.label = result.label || "";
             this.volume = result.volume || 0;

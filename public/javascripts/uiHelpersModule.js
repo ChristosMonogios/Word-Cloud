@@ -6,7 +6,15 @@ wordCloud.uiHelpersModule = (function() {
         
         var elem = document.createElement(type);
         elem.id = id;
-        elem.classList.add(clazz);           
+        
+        if (clazz instanceof Array) {
+            for (var i=0; i<clazz.length; i++) {
+                elem.classList.add(clazz[i]) 
+            }
+        } else {
+            elem.classList.add(clazz); 
+        }
+                  
            
         return elem;
     }

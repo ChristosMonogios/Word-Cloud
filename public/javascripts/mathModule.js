@@ -22,17 +22,19 @@ wordCloud.mathModule = (function() {
         
         propertyToSortTo = property;
         arr.sort(numberSorterDescending);
+        normalDistArr = arr.slice(0); // clone the existing array
+        arr.length = 0; // empty the existing array
         
-        arr.forEach(function(element, index) {
+        normalDistArr.forEach(function(element, index) {
             if (index % 2) {
-                normalDistArr.push(element);
+                arr.push(element);
             } else {
-                normalDistArr.unshift(element);
+                arr.unshift(element);
             }
         });
         
         propertyToSortTo = null;
-        return normalDistArr;
+        return arr;
     }
     
     // Code from http://jsfiddle.net/guffa/tvt5k/
