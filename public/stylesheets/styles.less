@@ -1,0 +1,48 @@
+.generate-text-sizes(6);
+
+.generate-text-sizes(@n, @i: 1) when (@i =< @n) {
+    .text-size-@{i} {
+        font-size: (@i * 0.8em);
+    }
+    .generate-text-sizes(@n, (@i + 1));
+}
+
+.cloudRow {
+    clear: both;
+}
+        
+.word {
+    float: left;
+    display: block;
+    
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    
+    &:active {
+        text-decoration: underline;
+    }
+}
+
+
+.red {
+    color: #d9534f;
+}
+
+.green {
+    color: #5cb85c;
+}
+
+.gray{
+    color: #777;
+}
+.panel-info {
+    border-color: #080808;
+}
+
+.panel-info>.panel-heading {
+    color: #fff;
+    background-color: #222;
+    border-color: #080808;
+}

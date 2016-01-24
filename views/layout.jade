@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title WordCloud Application
+    link(rel="stylesheet", href="/stylesheets/libs/bootstrap.min.css")
+    link(rel="stylesheet", href="/stylesheets/styles.css")
+  body
+    div(class="navbar navbar-inverse", role="navigation")
+      div(class="container")
+        div(class="navbar-header")
+          a(class="navbar-brand", href="/") WordCloud
+    div.container
+      div.row
+        div#alert-area
+      block content
+
+    script(src="javascripts/communicationModule.js")
+    script(src="javascripts/mathModule.js")
+    script(src="javascripts/uiHelpersModule.js")
+    script(src="javascripts/dataBindingModule.js")
+    script(src="javascripts/wordCloudModule.js")
+    script(src="javascripts/models/metaData.js")
+    script(src="javascripts/main.js")    
