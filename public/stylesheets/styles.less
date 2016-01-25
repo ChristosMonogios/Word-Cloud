@@ -1,3 +1,8 @@
+button:focus {
+    outline:0; 
+    text-decoration: none;
+}
+
 .generate-text-sizes(6);
 
 .generate-text-sizes(@n, @i: 1) when (@i =< @n) {
@@ -28,19 +33,31 @@
 
 .red {
     color: #d9534f;
+    
+    &.btn-link {
+        color: #d9534f;
+    }
 }
 
 .green {
     color: #5cb85c;
+    
+    &.btn-link {
+        color: #5cb85c;
+    }
 }
 
 .gray{
     color: #777;
+    
+    &.btn-link {
+        color: #777; 
+    }
 }
+
 .panel-info {
     border-color: #080808;
 }
-
 .panel-info>.panel-heading {
     color: #fff;
     background-color: #222;

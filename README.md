@@ -10,7 +10,12 @@ This repository contains a web application which creates and presents random siz
  - CSS: Dependency to Bootstrap. The Bootstrap file is customized. Only the used components are contained in the file.
 
 ## Browser support
-The JavaScript code uses only ECMAScript 5 features, making the application fully functional in old and new browsers. The application was also tested against IE8.
+The JavaScript code uses only ECMAScript 5 features, making the application fully functional in old and new browsers. The application was also tested against the following browsers:
+- IE6, IE7, IE8, IE9, IE10, IE11, IEedge
+- Chrome
+- Firefox
+- Safari
+- Opera
 
 ## How to start the application
 0. Navigate to the root folder of the project.
@@ -20,7 +25,8 @@ The JavaScript code uses only ECMAScript 5 features, making the application full
  - From the json file itself.
 3. If you want to use the database do the following steps:
  - Install MongoDB, if you don't already have it on your computer.
- - On the command prompt type the command that follows. **Important:** Use the *topicsMongo.json* file provided on the **root** folder of the repository. The reason is, that the topics array has been removed from the file so that the topics are structure on the top hierachy of the collection inside Mongo.
+ - On the command prompt type the command that follows. **Important:** Use the *topicsMongo.json* file provided on the **root** folder of the repository. The reason is, that the topics array has been removed from the file so that the topics are structure on the top hierachy of the collection inside Mongo. If you do not want to define a relative path, put the file under the *C:\Users\UserName* which is the default place where Mongo will search (of course this counts only for Windows users).
+ The command will create a *wordCloud* database with a *topics* collection. The application is already parametrized to query this database.
  ```
  mongoimport --db wordCloud --collection topics --type json --file topicsMongo.json --jsonArray
  ```

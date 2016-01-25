@@ -1,3 +1,7 @@
+button:focus {
+  outline: 0;
+  text-decoration: none;
+}
 .text-size-1 {
   font-size: 0.8em;
 }
@@ -33,10 +37,19 @@
 .red {
   color: #d9534f;
 }
+.red.btn-link {
+  color: #d9534f;
+}
 .green {
   color: #5cb85c;
 }
+.green.btn-link {
+  color: #5cb85c;
+}
 .gray {
+  color: #777;
+}
+.gray.btn-link {
   color: #777;
 }
 .panel-info {

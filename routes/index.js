@@ -12,20 +12,21 @@ router.get('/', function(req, res, next) {
 router.get('/topics', function(req, res, next) {
 
     // Option 1: Return data from database
-    dataProvider.getTopics(function(topics) {
-       res.json(topics); 
-    });
+    // dataProvider.getTopics(function(topics) {
+    //    res.json(topics); 
+    // });
     
     
     
     // Option 2: Access the topics.json directly as json file and send it back
-//     fs.readFile('data/topics.json', 'utf8', function(err, data) {
-//         if (err) {
-//             return console.log(err);
-//         }
-// 
-//         res.json(JSON.parse(data.topics));
-//     });
+    fs.readFile('data/topics.json', 'utf8', function(err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        var result = JSON.parse(data);
+        result = result.topics;
+        res.json(result);
+    });
 });
 
 module.exports = router;

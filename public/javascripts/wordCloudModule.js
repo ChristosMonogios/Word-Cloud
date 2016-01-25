@@ -53,8 +53,8 @@ wordCloud.wordCloudModule = (function(mathModule, uiHelpersModule, MetaData) {
 
         for (var i=0; i<topicsLength; i++) {
             currentRowOfCloudAsHTMLElement = uiHelpersModule.getHTMLElementBasedOnItsId("cloud-row" + currentRowOfCloud);
-            currentWordAsHTMLElement = uiHelpersModule.createAHTMLElement("div", i, 
-                ["word", "text-size-" + getTextSizeBasedOnPopularity(topics[i].volume || 10),
+            currentWordAsHTMLElement = uiHelpersModule.createAHTMLElement("button", i, 
+                ["word", "text-size-" + getTextSizeBasedOnPopularity(topics[i].volume || 10), "btn-link",
                 getColorBasedOnSentimentScore(topics[i].sentimentScore || 50)]);
                         
             currentWordAsHTMLElement.innerHTML = topics[i].label || "";
