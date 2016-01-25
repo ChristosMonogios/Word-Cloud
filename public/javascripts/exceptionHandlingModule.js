@@ -1,5 +1,5 @@
 window.onerror = function (message, url, lineNumber, column, errorObject) {
-    var alertArea = uiHelpersModule.getHTMLElementBasedOnItsId("alert-area");
+    var alertArea = wordCloud.uiHelpersModule.getHTMLElementBasedOnItsId("alert-area");
     alert(message);
 }
 

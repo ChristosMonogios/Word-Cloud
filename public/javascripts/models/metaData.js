@@ -1,4 +1,4 @@
- wordCloud.MetaData = (function(TwoWayBind, wordCloudModule) {       
+ wordCloud.MetaData = (function(TwoWayBind, wordCloudModule, uiHelpersModule) {       
         function MetaData() {
             this.label = new TwoWayBind(this, "label");
             this.volume = new TwoWayBind(this, "volume");
@@ -10,6 +10,11 @@
         MetaData.prototype.updateMetaInformation  = function(e) {
             var key = e.currentTarget.id;
             var result = wordCloudModule.getTopics()[key];
+            
+            if (!uiHelpersModule.checkIfAHTMLElementHasASpecificStyle("metadata", "display", "none")) {
+                uiHelpersModule.setStyleInAHTMLElement("metadata", "display", "block");
+                uiHelpersModule.setStyleInAHTMLElement("start-info", "display", "none");                 
+            }
 
             this.label = result.label || "";
             this.volume = result.volume || 0;
@@ -19,4 +24,4 @@
         }
         
         return MetaData;
-})(wordCloud.TwoWayBind, wordCloud.wordCloudModule);
+})(wordCloud.TwoWayBind, wordCloud.wordCloudModule, wordCloud.uiHelpersModule);

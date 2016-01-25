@@ -50,11 +50,21 @@ wordCloud.uiHelpersModule = (function() {
         parent.appendChild(child);
     }
     
+    function checkIfAHTMLElementHasASpecificStyle(element, style, value) {
+        return !!getHTMLElementBasedOnItsId(element).style[style] === value;
+    }
+    
+    function setStyleInAHTMLElement(element, style, value) {
+        return getHTMLElementBasedOnItsId(element).style[style] = value;
+    }
+    
     return {
         createAHTMLElement: createAHTMLElement,
         getHTMLElementBasedOnItsId: getHTMLElementBasedOnItsId,
         getHTMLElementsBasedOnTheirClass: getHTMLElementsBasedOnTheirClass,
         applyStylingToAHTMLElement: applyStylingToAHTMLElement,
-        addElementToParentElement: addElementToParentElement
+        addElementToParentElement: addElementToParentElement,
+        checkIfAHTMLElementHasASpecificStyle: checkIfAHTMLElementHasASpecificStyle,
+        setStyleInAHTMLElement: setStyleInAHTMLElement        
     }
 })();

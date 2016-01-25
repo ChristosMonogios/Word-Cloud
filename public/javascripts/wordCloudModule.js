@@ -14,7 +14,7 @@ wordCloud.wordCloudModule = (function(mathModule, uiHelpersModule, MetaData) {
     }
     
     function doWordCloudAfterReceivedRespone (result) {
-        createARandomCloud(uiHelpersModule.getHTMLElementBasedOnItsId("wordCloud"));
+        createARandomCloud(uiHelpersModule.getHTMLElementBasedOnItsId("word-cloud"));
         setTopics(result);
         addWordsInsideTheCloud(); 
 
@@ -31,7 +31,7 @@ wordCloud.wordCloudModule = (function(mathModule, uiHelpersModule, MetaData) {
         for (var i=0; i<arrLength; i++) {
             currentWidth = arrayWithWidthsOfElements[i];
             
-            currentElement = uiHelpersModule.createAHTMLElement("div", "cloudRow" + i, "cloudRow");
+            currentElement = uiHelpersModule.createAHTMLElement("div", "cloud-row" + i, "cloud-row");
             
             currentWidth = (currentWidth / parentElement.offsetWidth) * 100;
             uiHelpersModule.applyStylingToAHTMLElement(currentElement, {
@@ -52,7 +52,7 @@ wordCloud.wordCloudModule = (function(mathModule, uiHelpersModule, MetaData) {
             topicsLength = topics.length;
 
         for (var i=0; i<topicsLength; i++) {
-            currentRowOfCloudAsHTMLElement = uiHelpersModule.getHTMLElementBasedOnItsId("cloudRow" + currentRowOfCloud);
+            currentRowOfCloudAsHTMLElement = uiHelpersModule.getHTMLElementBasedOnItsId("cloud-row" + currentRowOfCloud);
             currentWordAsHTMLElement = uiHelpersModule.createAHTMLElement("div", i, 
                 ["word", "text-size-" + getTextSizeBasedOnPopularity(topics[i].volume || 10),
                 getColorBasedOnSentimentScore(topics[i].sentimentScore || 50)]);
