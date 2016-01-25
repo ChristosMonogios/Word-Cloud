@@ -14,8 +14,7 @@ wordCloud.uiHelpersModule = (function() {
         } else {
             elem.classList.add(clazz); 
         }
-                  
-           
+
         return elem;
     }
     

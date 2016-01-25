@@ -38,7 +38,7 @@ wordCloud.mathModule = (function() {
     }
     
     // Code from http://jsfiddle.net/guffa/tvt5k/
-    function generateArrayWithNormalDistributedElements(counter) {
+    function generateArrayWithNormalDistributedElements(distributionRate) {
         var numbers = [],
             numberOfGeneratedNumbers = 20;
         
@@ -50,7 +50,7 @@ wordCloud.mathModule = (function() {
             numbers[i] = 0;
         }
         
-        for (var i=0; i<counter; i++) {
+        for (var i=0; i<distributionRate; i++) {
             numbers[10 + Math.round(10 * rnd())]++;
         }
         

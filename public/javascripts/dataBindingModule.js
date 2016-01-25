@@ -36,9 +36,10 @@ wordCloud.Binder = (function() {
 })();
 
 wordCloud.TwoWayBind = (function(Binder) {
-    function TwoWayBind(obj, propName, uiCallback) {
+    function TwoWayBind(obj, propName) {
         var binder = new Binder(obj);
         
+        // Use a shadow property to avoid RangeError 
         Object.defineProperty(obj, propName, {           
             get: function() {
                 return obj["_" + propName];
@@ -52,26 +53,26 @@ wordCloud.TwoWayBind = (function(Binder) {
             }
         });
         
+        binder.subscribe(propName, this.ModelToUI);
         binder.subscribe(propName, this.UIToModel);
-        binder.subscribe(propName, this.defaultUiCallback);
     }
     
-    TwoWayBind.prototype.UIToModel = function(object, property, value) {
+    TwoWayBind.prototype.ModelToUI = function(object, property, value) {
         var elementsAffected = document.querySelectorAll("[data-binding=" + object.constructor.name + "-" + property + "]"),
             elementType = null;
 
-        for (var i=0; i < elementsAffected.length; i++) {
-            elementType = elementsAffected[ i ].tagName.toLowerCase();
+        for (var i=0; i<elementsAffected.length; i++) {
+            elementType = elementsAffected[i].tagName.toLowerCase();
 
             if ( elementType === "input" || elementType === "textarea" || elementType === "select" ) {
-                elementsAffected[ i ].value = value;
+                elementsAffected[i].value = value;
             } else {
-                elementsAffected[ i ].innerHTML = value;
+                elementsAffected[i].innerHTML = value;
             }
         }
   }
     
-    TwoWayBind.prototype.defaultUiCallback = function(obj, property, value) {
+    TwoWayBind.prototype.UIToModel = function(obj, property, value) {
         obj["_" + property] = value;
     }
     

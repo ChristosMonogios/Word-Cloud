@@ -91,9 +91,10 @@ wordCloud.wordCloudModule = (function(mathModule, uiHelpersModule, MetaData) {
     }
 
     function getTextSizeBasedOnPopularity(volume) {
-        if (volume < 0) {
-            throw Error("Volume cannot be negative.");
+        if (volume < 0 || typeof volume != "number") {
+            throw Error("Plese provide a valid value.");
         }
+        
         
         var lvl = 1;
         
@@ -114,6 +115,10 @@ wordCloud.wordCloudModule = (function(mathModule, uiHelpersModule, MetaData) {
     }
     
     function getColorBasedOnSentimentScore(score) {
+        if (typeof score != "number") {
+            throw new Error("The score has to be a number.");
+        }
+        
         var color = "";
         
         if (score < 40) {

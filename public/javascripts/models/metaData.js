@@ -1,23 +1,15 @@
- wordCloud.MetaData = (function(TwoWayBind, wordCloudModule) {
-        var _label = null;
-        var _volume = null;
-        var _positive = null;
-        var _neutral = null;
-        var _negative = null;
-        
+ wordCloud.MetaData = (function(TwoWayBind, wordCloudModule) {       
         function MetaData() {
-            this.label = new TwoWayBind(this, "label", TwoWayBind.defaultUiCallBack);
-            this.volume = new TwoWayBind(this, "volume", TwoWayBind.defaultUiCallBack);
-            this.positive = new TwoWayBind(this, "positive", TwoWayBind.defaultUiCallBack);
-            this.neutral = new TwoWayBind(this, "neutral", TwoWayBind.defaultUiCallBack);
-            this.negative = new TwoWayBind(this, "negative", TwoWayBind.defaultUiCallBack);
+            this.label = new TwoWayBind(this, "label");
+            this.volume = new TwoWayBind(this, "volume");
+            this.positive = new TwoWayBind(this, "positive");
+            this.neutral = new TwoWayBind(this, "neutral");
+            this.negative = new TwoWayBind(this, "negative");
         }
         
         MetaData.prototype.updateMetaInformation  = function(e) {
             var key = e.currentTarget.id;
             var result = wordCloudModule.getTopics()[key];
-            
-            e.currentTarget.style.textDecoration = "underline";
 
             this.label = result.label || "";
             this.volume = result.volume || 0;

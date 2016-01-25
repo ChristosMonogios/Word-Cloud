@@ -2,26 +2,26 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>QUnit basic example</title>
+  <title>QUnit tests</title>
   <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.20.0.css">
 </head>
 <body>
   <div id="qunit"></div>
   <div id="qunit-fixture"></div>
+  <div id="data-binding" data-binding="TestObject-testProperty"></div>
+  <input type="text" id="data-binding2" data-binding="TestObject2-testProperty2"></input>
   <script src="https://code.jquery.com/qunit/qunit-1.20.0.js"></script>
   <script src="../communicationModule.js"></script>
   <script src="../mathModule.js"></script>
   <script src="../uiHelpersModule.js"></script>
-  <script src="mathModuleTests.js"></script>
-  <script src="uiHelpersModuleTests.js"></script>
   <script src="../wordCloudModule.js"></script>
+  <script src="../dataBindingModule.js"></script>  
+  <script src="../models/metaData.js"></script>  
+  <script src="uiHelpersModuleTests.js"></script>
+  <script src="mathModuleTests.js"></script>
+  <script src="wordCloudModuleTests.js"></script>
+  <script src="dataBindingModuleTests.js"></script>
   <script>    
-    QUnit.test("get topics in a normal distributed order", function(assert) {
-        var topics = [{volume: 9}, {volume: 19}, {volume: 2}, {volume: 22}, {volume: 32}, {volume: 12}];
-        wordCloud.wordCloudModule.setTopics(topics);
-
-        assert.equal(topics[0].volume, 9, "The result should be normaly distributed");    
-    });
   </script>
 </body>
 </html>
