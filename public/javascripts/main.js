@@ -1,8 +1,11 @@
 wordCloud.resultTopics = [];
-console.log("test");
+
 window.onload = function() {
-   wordCloud.communicationModule.get(
-       wordCloud.wordCloudModule.doWordCloudAfterReceivedRespone, 
-       wordCloud.communicationModule.defaultOnErrorAction); 
+    if (window.location.pathname === "" || 
+        window.location.pathname === "/") {
+        wordCloud.communicationModule.get(
+            wordCloud.wordCloudModule.doWordCloudAfterReceivedRespone, 
+            wordCloud.communicationModule.defaultOnErrorAction);         
+    }
 }
 

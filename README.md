@@ -1,6 +1,11 @@
 # Word-Cloud
 This repository contains a web application which creates and presents random sized [word clouds](https://en.wikipedia.org/wiki/Tag_cloud) and their meta information. The size and the color of a word varies based on the popularity of the word.
 
+You can find the application online hosted on heroku: http://customwordcloud.herokuapp.com/. During the first request the page is going to load slower since the heroku dyno sleeps after a while of inactivity.
+The online version uses MongoDB as database. Continue reading and you will see why I mention that.
+
+The page passes the W3 validation tests with no errors: https://validator.w3.org/nu/?doc=http%3A%2F%2Fcustomwordcloud.herokuapp.com%2F
+
 ## Technologies used
 - IDE: Visual Studio code
 - Backend: Node v4.2.6 with Express
@@ -33,6 +38,7 @@ The JavaScript code uses only ECMAScript 5 features, making the application full
  More information about this command can be found [here](http://zaiste.net/2012/08/importing_json_into_mongodb/)
  - Uncomment the code for *Option 1* in the *routes/index.js* file inside the *router.get('/topics', function(req, res, next)* function.
  - Comment the code for *Option 2* in the same function
+ - Start Mongo by running the *mongod* command in the command prompt.
 4. If you want to use the topics.json file directly, then you can start the application without any code change. This is the default way.
 5. Start node and navigate to http://localhost:3000
 6. The page with the word cloud is loaded.
